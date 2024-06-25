@@ -1,0 +1,22 @@
+.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.i-pix {
+    background-image: url('/src/renderer/icons/pix.svg');
+  }
+
+  &.i-barcode {
+    background-image: url('/src/renderer/icons/barcode-solid.svg');
+  }
+
+  &.i-credit-card {
+    background-image: url('/src/renderer/icons/credit-card-solid.svg');
+  }
+
+  &,
+  &.i-big-size {
+    min-width: 64px;
+    height: 64px;
+  }
+}

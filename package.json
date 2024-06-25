@@ -3,8 +3,8 @@
     "dev": "npm run server:dev",
     "prod": "npm run build && npm run server:prod",
     "build": "vite build",
-    "server:dev": "node ./server",
-    "server:prod": "cross-env NODE_ENV=production node ./server"
+    "server:dev": "node ./src/server",
+    "server:prod": "cross-env NODE_ENV=production node ./src/server"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
@@ -19,5 +19,8 @@
     "vite": "^5.0.10",
     "vue": "^3.3.10"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sass": "^1.77.4"
+  }
 }
