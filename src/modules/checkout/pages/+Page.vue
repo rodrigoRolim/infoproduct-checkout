@@ -32,6 +32,8 @@ const PERSONAL_DATAS_STEP = 0;
 const PAYMENT_DATAS_STEP = 1;
 const PERSONAL_DATAS_STEP_NAME = 'Dados Pessoais'
 const PAYMENT_DATAS_STEP_NAME = 'Dados de Pagamento'
+const CONTINUE_BUTTON = 'continuar'
+const FINISH_BUTTON = 'finalizar'
 
 const steps = Object.freeze([PERSONAL_DATAS_STEP, PAYMENT_DATAS_STEP])
 const stepNames = Object.freeze([PERSONAL_DATAS_STEP_NAME, PAYMENT_DATAS_STEP_NAME])
@@ -40,7 +42,7 @@ const currentStep = ref(PERSONAL_DATAS_STEP)
 const currentStepName = ref(PERSONAL_DATAS_STEP_NAME)
 const stepLength = steps.length
 
-const buttonLabels = Object.freeze(['continuar', 'finalizar'])
+const buttonLabels = Object.freeze([CONTINUE_BUTTON, FINISH_BUTTON])
 const currentButtonLabel = ref('continuar')
 
 function goNextStep() {

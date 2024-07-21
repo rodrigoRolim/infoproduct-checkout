@@ -1,18 +1,18 @@
 <template>
   <label :for="forProperty" class="ip-input">
-    <div class="container">
-      <small class="label">{{ label }}</small>
-      <input 
-        type="text"
-        class="input"
-        :aria-describedby="describedby"
-        :id="forProperty"
-        :placeholder="placeholder"
-        autocomplete="off"
-      />
-    </div>
+    <small class="label">{{ label }}</small>
+    <input
+      spellcheck="false"
+      type="text"
+      class="input"
+      :aria-describedby="describedby"
+      :id="forProperty"
+      :placeholder="placeholder"
+      autocomplete="off"
+    />
     <ip-hint
-      v-if="hint"
+      class="hint"
+      :hidden="hint === ''"
       :id="describedby"
       :content="hint"
     />
@@ -45,40 +45,38 @@ defineProps({
 .ip-input {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 100%;
+  min-height: $input-components-height;
+  border: 2px solid $color-700;
+  border-radius: 8px;
 
-  .container {
-    position: relative;
-    display: inherit;
-    flex-direction: inherit;
-    border: 2px solid $color-600;
-    border-radius: 8px;
-
-    .label {
-      font-size: 14px;
-      font-weight: 600;
-      color: $color-950;
-      position: absolute;
-      left: 8px;
-      top: 2px;
-    }
+  .label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-950;
+    margin-left: 8px;
   }
 
   .input {
     font-size: 1rem;
     font-weight: 500;
     color: $color-950;
-    height: 50px;
-    padding: 1rem 0.5rem 0.3rem;
     border: unset;
     outline: unset;
     border-radius: 8px;
     width: 100%;
+    height: 25px;
+    padding: 0 0.5rem;
 
     &::placeholder {
       color: $color-950;
       opacity: 0.5;
     }
+  }
+
+  .hint {
+    margin-left: 0.5rem;
   }
 }
 </style>

@@ -1,81 +1,66 @@
 <template>
-  <table class="payment-links">
-    <thead class="header">
-      <tr class="content">
-        <th 
-          class="cell"
-          v-for="column in columns"
-          :key="column.id"
-        >
-          {{ column.value }}
-        </th>
-      </tr>
-    </thead>
-    <tbody class="body">
-      <tr
-        class="register"
-        v-for="paymentLink in paymentLinkList"
-        :key="paymentLink.id"
-      >
-        <td class="cell">{{ paymentLink.id }}</td>
-        <td class="cell"><img :src="paymentLink.image.src" :alt="paymentLink.image.alt"/></td>
-        <td class="cell">{{ paymentLink.name }}</td>
-        <td class="cell">{{ paymentLink.price }}</td>
-        <td class="cell">{{ paymentLink.createdAt }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="payment-link-page">
+    <div class="payment-link-page-actions">
+      <button class="payment-link-page-new">Novo link de pagamento</button>
+    </div>
+    <div class="payment-link-page-list">
+      <input-search
+        forProperty="name"
+        label="busca geral"
+        placeholder="Ex: fulano de tal"
+      />
+      <ClientOnlyPaymentLinkTable>
+        <template #fallback>
+          <skeleton :height="50" :quantity="4"/>
+        </template>
+      </ClientOnlyPaymentLinkTable>
+    </div>
+  </div>
 </template>
 
 <script setup>
-const columns = [
-  { id: 0, value: 'id' },
-  { id: 0, value: 'imagem' },
-  { id: 1, value: 'nome' },
-  { id: 2, value: 'preço' },
-  { id: 3, value: 'data de criação'}
-]
-const paymentLinkList = [
-  { id: 0, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto Aasdasdsadasadasasdsad', createdAt: '12/08/2024' },
-  { id: 1, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto A', createdAt: '12/08/2024' },
-  { id: 2, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto A', createdAt: '12/08/2024' },
-  { id: 3, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto A', createdAt: '12/08/2024' },
-  { id: 4, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto A', createdAt: '12/08/2024' },
-  { id: 5, image: { src: '', alt: 'foto do produto' }, price: 'R$ 50,00', name: 'Nome do produto A', createdAt: '12/08/2024' },
-]
+import InputSearch from '@/ui-lib/InputSearch.vue'
+import { clienOnly } from '@/helpers/clientOnly';
+import Skeleton from '@/ui-lib/skeleton.vue';
+
+const ClientOnlyPaymentLinkTable = clienOnly(() => import('../components/PaymentLinkTable.vue'))
 </script>
 
 <style lang="scss">
-.payment-links {
-  display: grid;
-  grid-template-rows: 50px 1fr;
+.payment-link-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1248px;
 
-  .header {
-    .content {
-      display: grid;
-      grid-template-columns: max(50px) max(130px) max(200px) max(100px) max(130px);
-      justify-items: start;
-      column-gap: 20px;
-      background-color: rgb(194, 194, 194);
-    }
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
   }
 
-  .body {
-    .register {
-      display: grid;
-      grid-template-columns: max(50px) max(130px) max(200px) max(100px) max(130px);
-      justify-items: start;
-      column-gap: 20px;
-      .cell {
-        word-break: break-all;
-      }
-    }
+  &-new {
+    cursor: pointer;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-base;
+    background-color: $color-700;
+    border: 1px solid transparent;
+    border-radius: 8px;
   }
-  .cell {
-    height: 50px;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
   }
 }
-tr:nth-child(2n) {
-  background-color: rgb(194, 194, 194);
-}
+
 </style>

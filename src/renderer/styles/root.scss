@@ -1,4 +1,5 @@
 :root {
+  --color-white: white;
   --color-base: #EFFEFD;
   --color-100: #C8FFF9;
   --color-200: #91FEF5;
@@ -10,6 +11,13 @@
   --color-800: #0a6165;
   --color-900: #0e5153;
   --color-950: #002f33;
+
+  --color-gray: #0824271e; 
+
+  --color-success: #22bb33;
+  --color-info: #5bc0de;
+  --color-danger: #bb2124;
+  --color-warning: #f0ad4e;
 }
 
 $color-base: var(--color-base);
@@ -23,6 +31,14 @@ $color-700: var(--color-700);
 $color-800: var(--color-800);
 $color-900: var(--color-900);
 $color-950: var(--color-950);
+$color-gray: var(--color-gray);
+
+$color-success: var(--color-success);
+$color-info: var(--color-info);
+$color-danger: var(--color-danger);
+$color-wraning: var(--color-warning);
+
+$color-white: var(--color-white);
 
 .text {
   color: $color-950;
