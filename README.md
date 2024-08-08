@@ -63,3 +63,50 @@ Programas de Fitness e Saúde: Planos de exercícios e dietas.
 Jogos e Aplicativos Móveis: Jogos para smartphones.
 Serviços de Aluguel de Filmes Online: Aluguel digital de filmes.
 Conteúdos Interativos (VR/AR): Realidade virtual e aumentada.
+
+
+Essential Payment Data to Store:
+Transaction Details:
+
+* Transaction ID: A unique identifier for the transaction.
+* Amount: The transaction amount.
+* Currency: The currency in which the transaction was made.
+* Date and Time: When the transaction occurred.
+* Status: The status of the transaction (e.g., pending, completed, failed, refunded).
+
+Payment Method Details:
+
+* Payment Method Type: (e.g., credit card, debit card, bank transfer, e-wallet).
+* Card Type: (e.g., Visa, MasterCard) if applicable.
+* Last Four Digits of Card Number: For reference without storing the full card number.
+* Card Expiry Date: Only the expiry month and year.
+* Customer Details:
+
+* Customer ID: A unique identifier for the customer.
+* Name: Customer’s name.
+* Email: Customer’s email address.
+* Billing Address: Full address including country.
+* Shipping Address: If different from billing address.
+* Merchant Details:
+
+
+* Merchant ID: A unique identifier for the merchant.
+* Merchant Name: Name of the merchant.
+
+Order Details:
+
+* Order ID: A unique identifier for the order.
+* Order Description: A brief description of what was purchased.
+* Item Details: List of items purchased with their prices and quantities.
+
+Security and Compliance Data:
+
+* IP Address: Customer’s IP address at the time of transaction.
+* Browser/User Agent: Information about the customer’s browser or device.
+* Geolocation Data: Location data based on IP address, if applicable.
+* Fraud Detection Data: Any data relevant to detecting fraud (e.g., device fingerprinting).
+* Security Considerations:
+* Encryption: Ensure all sensitive data (e.g., card numbers, CVV) is encrypted both in transit and at rest.
+* Tokenization: Replace sensitive payment data with tokens that can be used within your system without exposing the actual data.
+* Access Control: Implement strict access controls to ensure only authorized personnel can access sensitive payment information.
+* Auditing and Logging: Maintain logs of all access and modifications to sensitive data for auditing purposes.

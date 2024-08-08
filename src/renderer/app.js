@@ -1,12 +1,11 @@
 export { createApp }
 
 import { createSSRApp, h, markRaw, reactive, ref } from 'vue'
-import PageLayout from '@/layouts/PageLayout.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { setPageContext } from './usePageContext'
 import { setData } from './useData'
 import { isObject } from './utils'
 import setCustomDirectives from './setCustomDirectives'
-
 
 function createApp(pageContext) {
   const { Page } = pageContext
@@ -14,7 +13,7 @@ function createApp(pageContext) {
 
   const PageWithLayout = {
     render() {
-      return h(PageLayout, {}, { default: () => h(pageRef.value) })
+      return h(DefaultLayout, {}, { default: () => h(pageRef.value) })
     }
   }
 

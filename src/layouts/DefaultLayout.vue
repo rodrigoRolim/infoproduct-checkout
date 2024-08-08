@@ -1,8 +1,11 @@
 <template>
   <div id="page-container">
+    <header class="toolbar">
+      
+    </header>
     <div class="page-description">
-      <button>
-        <img src="../renderer/img/chevron-left-solid.svg"/>
+      <button class="button">
+        <img src="../renderer/img/chevron-left-solid.svg" width="12" height="12"/>
       </button>
       <h1 class="title">Links de pagamento</h1>
     </div>
@@ -11,33 +14,38 @@
 </template>
 
 <script setup>
+
 </script>
 
 <style lang="scss">
+@import '../renderer/styles/main.scss';
+
 #page-container {
   display: flex;
   flex-direction: column;
+  gap: 32px;
+
   background-color: $color-white;
-  height: 100vh;
+ 
   font-size: 14px;
-  max-width: 1248px;
+  max-width: $max-layout-width;
   margin: 0 auto;
   
+  @include respond-to(handhelds) {
+    padding: 0px 1rem;
+  }
+
   .page-description {
     display: flex;
     align-items: center;
     gap: 12px;
     width: 100%;
 
-    button {
+    .button {
       cursor: pointer;
       display: flex;
       background-color: transparent;
       border: unset;
-    }
-
-    img {
-      width: 12px;
     }
   }
 

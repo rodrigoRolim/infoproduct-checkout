@@ -17,6 +17,7 @@
       tabindex="0" 
       role="button"
       ref="inputRef"
+      aria-describedby=""
       @click="settingListboxElement"
       @input="leachOptionsByInput"
       @keydown.enter="confirmOption"

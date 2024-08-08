@@ -12,7 +12,7 @@ export default {
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/renderer/styles/index.scss";`
+        additionalData: `@import "@/renderer/styles/design/main.scss";`
       }
     }
   }

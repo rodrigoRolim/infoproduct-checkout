@@ -1,7 +1,6 @@
 <template>
   <form class="create-product">
     <fieldset class="product-fields">
-      <legend class="title">Criar novo link de pagamento</legend>
       <IpInputText
         class="input name"
         forProperty="product-name"
@@ -14,19 +13,21 @@
         :options="productCategories"
         aria-controls="product-categories" 
         aria-labelledby="product-categories-label"
+        aria-describedby="category-select-describe"
       />
-      <IpSelect
+      <InputCurrency
         v-model="productDatas.type"
         label="Tipo do produto" 
         :options="productTypes" 
-        aria-controls="product-types" 
         aria-labelledby="product-types-label"
+        aria-describedby="type-select-describe"
       />
-      <IpSelect
+      <InputCurrency
         v-model="productDatas.currency"
         label="Moeda"
         aria-controls="product-currency" 
         aria-labelledby="product-currency-label"
+        aria-describedby="currency-select-describe"
       />
       <IpInputText
         class="input price"
@@ -41,6 +42,7 @@
       <IpSelect
         v-model="productDatas.accessLevel"
         label="Nível de acesso"
+        aria-describedby="access-select-describe"
       />
       <IpTextarea
         class="input description"
@@ -50,14 +52,20 @@
         id="description"
         rows="5"
       />
+      <IpButton 
+        text="confirmar"
+      />
     </fieldset>
   </form>
 </template>
 
 <script setup>
 import IpInputText from '@/ui-lib/IpInputText.vue'
+import InputCurrency from '@/ui-lib/InputCurrency.vue';
 import IpSelect from '@/ui-lib/IpSelect.vue';
 import IpTextarea from '@/ui-lib/IpTextarea.vue';
+import IpButton from '@/ui-lib/IpButton.vue';
+
 import { shallowReactive } from 'vue';
 
 const productDatas = shallowReactive({

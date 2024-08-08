@@ -59,9 +59,7 @@ function goNextStep() {
 
 <style lang="scss">
 .checkout {
-  min-height: 100dvh;
   width: 100%;
-  padding: 1rem;
 
   .fields {
     display: flex;

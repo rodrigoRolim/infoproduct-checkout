@@ -1,7 +1,12 @@
 <template>
   <div class="payment-link-page">
     <div class="payment-link-page-actions">
-      <button class="payment-link-page-new">Novo link de pagamento</button>
+      <button 
+        class="payment-link-page-new"
+        @click="redirectToCreatePaymentLink"
+      >
+        Novo link de pagamento
+      </button>
     </div>
     <div class="payment-link-page-list">
       <input-search
@@ -9,6 +14,7 @@
         label="busca geral"
         placeholder="Ex: fulano de tal"
       />
+      <PaymentLinkList />
       <ClientOnlyPaymentLinkTable>
         <template #fallback>
           <skeleton :height="50" :quantity="4"/>
@@ -20,10 +26,16 @@
 
 <script setup>
 import InputSearch from '@/ui-lib/InputSearch.vue'
+import PaymentLinkList from '../components/PaymentLinkList.vue';
 import { clienOnly } from '@/helpers/clientOnly';
 import Skeleton from '@/ui-lib/skeleton.vue';
+import { navigate } from 'vike/client/router';
 
 const ClientOnlyPaymentLinkTable = clienOnly(() => import('../components/PaymentLinkTable.vue'))
+
+function redirectToCreatePaymentLink() {
+  navigate('/links-de-pagamento/novo-link')
+}
 </script>
 
 <style lang="scss">

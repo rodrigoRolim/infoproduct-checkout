@@ -1,1 +1,1 @@
-export default "/links-de-pagamento/criar-novo-link"
+export default "/links-de-pagamento/novo-link"
